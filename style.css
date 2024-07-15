@@ -1,0 +1,109 @@
+@font-face {
+  font-family: cali;
+  src: url('content/GreatVibes-Regular.ttf');
+}
+
+@font-face {
+  font-family: noto;
+  src: url('content/NotoSans-Regular.ttf');
+}
+
+body,html {
+padding:0;margin:0;
+font-family: noto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+//  padding-top:5%;
+}
+  
+details {
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+  background-color: #555;
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}
+
+.nomarker > summary {
+  list-style: none;
+  font-weight: normal;
+}
+.nomarker > summary::-webkit-details-marker {
+  display: none;
+  font-weight: normal;
+}
+
+.fill { height:auto; min-width:90vw;}
+    
+.header {
+  color:#fff;
+  background-color:#000;
+}
+
+.content {
+  margin-top: 5%;
+  padding-bottom: 5%;
+  padding-left:5%;
+  padding-right:5%;
+  color: #fff;
+  background-color:#333;
+}
+
+a { color: #00bbdd;}
+
+body {
+    color: white; background-color: black 
+}
+
+.footer {
+  background-color:#000;
+  color:#fff;
+  padding-left:5%;
+  padding-right:5%;
+  padding-top:5%;
+  padding-bottom:5%;
+}
+
+.header>* { margin-bottom: 5%;}
+
+.name {
+  background:
+    url('content/glitter.gif')  
+    repeat;
+  color: transparent;
+  font-family: cali;
+  font-size: 120px;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+img {
+max-width: 254px;
+max-height: 160px:
+}
+
+.gray {
+  color:#666;
+}
+
+.zero {
+position:relative;
+top:0;left:0;
+height:0;
+}
