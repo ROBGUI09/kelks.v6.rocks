@@ -47,10 +47,10 @@
         return window.self !== window.top;
       }
 
-      if (isInsideIframe()) {
+      if (!isInsideIframe()) {
         const notice = document.getElementById("notice");
         notice.style.paddingBottom = "250px;"
-        notice.innerHTML = "Похоже, что вы открыли эту страницу не из интеграции<br><br>Возможно, вы захотите <a href=\"https://matrix.to/#/#unemployment:waffle.tech\">присоединиться к пространству</a>, в котором используется эта страница"
+        notice.innerHTML = "Похоже, что вы открыли эту страницу не из интеграции<br><br>Возможно, вы захотите <a href=\"https://matrix.to/#/#unemployment:waffle.tech\">присоединиться к пространству</a>, в котором используется эта страница?"
       }
 
       setInterval(() => {
