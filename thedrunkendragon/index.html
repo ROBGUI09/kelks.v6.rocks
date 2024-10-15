@@ -26,6 +26,7 @@
   </style>
 </head>
 <body>
+    <span id="notice"></span>
     <h1>Добро пожаловать в таверну "The Drunken Dragon".</h1>
     <span>Самые главные правила на данный момент:</span>
     <h2>1. Никакого расизма</h2>
@@ -42,6 +43,16 @@
     <span>Настроки ниже синхронизируются с другими устройствами</span><br><br>
     <img src="./notifs.png" />
     <script>
+      function isInsideIframe() {
+        return window.self !== window.top;
+      }
+
+      if (isInsideIframe()) {
+        const notice = document.getElementById("notice");
+        notice.style.paddingBottom = "250px;"
+        notice.innerHTML = "Похоже, что вы открыли эту страницу не из интеграции<br><br>Возможно, вы захотите <a href=\"https://matrix.to/#/#unemployment:waffle.tech\">присоединиться к пространству</a>, в котором используется эта страница"
+      }
+
       setInterval(() => {
         document.body.style.width = (window.innerWidth-50)+"px";
       }, 10);
