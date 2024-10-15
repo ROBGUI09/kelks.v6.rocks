@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <style>
-    .container {
+    body, html {
         font-family: "Noto Sans", serif;
         font-optical-sizing: auto;
         font-weight: 400;
@@ -20,13 +20,6 @@
         color: white;
         background-color: black;
         scrollbar-color: gray black;
-        overflow-y: scroll;
-        width:100vw;
-        height:100vh;
-    }
-    body, html {
-        margin: 0; height: 100%; overflow: hidden;
-        background-color: black;
     }
     img {
       max-height:100%; max-width:100%;
@@ -62,7 +55,7 @@
       }
 
       setInterval(() => {
-        document.body.style.width = (window.innerWidth-100)+"px";
+        document.body.style.width = (window.innerWidth-75)+"px";
       }, 10);
     </script>
   </div>
