@@ -21,7 +21,7 @@
         background-color: black;
     }
     img {
-      max-height:100%; max-width:1000px;
+      max-height:100%; max-width:100%;
     }
   </style>
 </head>
@@ -38,7 +38,13 @@
     <img src="./people.png"/><br><br>
     <img src="./sort.png"/><br><br>
     <hr>
-    <span>Рекомендую эти настройки уведомлений если вы недавно начали пользоваться мессенджером Element и сетью Matrix</span><br><br>
+    <span>Рекомендую эти настройки уведомлений если вы недавно начали пользоваться мессенджером Element и сетью Matrix</span><br>
+    <span>Настроки ниже синхронизируются с другими устройствами</span><br><br>
     <img src="./notifs.png" />
+    <script>
+      setTimeout(() => {
+        document.body.style.width = window.innerWidth+"px";
+      }, 1);
+    </script>
 </body>
 </html>
