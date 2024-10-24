@@ -58,10 +58,39 @@
           <div id="shine"></div>
         </div>
       </div>
+      <div class="container">
+        <style scoped>
+          @font-face{font-family:"DINEngschrift";src:url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.eot");src:url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.eot?#iefix")format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.woff2")format("woff2"), url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.woff")format("woff"), url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.ttf")format("truetype"), url("https://db.onlinewebfonts.com/t/c8785886e87999bc62f09333e0a27e86.svg#DINEngschrift")format("svg")}*,*:after,*:before{margin:0;padding:0;box-sizing:border-box}body{font-family:"din-condensed", sans-serif;background-color:#000}.container{display:flex;font-family:"DINEngschrift"}.banner{height:80px;width:0;color:#ffef00;margin-right:0;transition:all 0.3s ease-in-out;&.max{transition:all 0.3s ease-in-out;margin-right:10px;width:750px}marquee{text-transform:uppercase;font-size:50px;transform:translate(0px,5px)}marquee r:after{content:"///";padding-left:50px;padding-right:50px}&.max span{display:block}}.box{width:100%;height:100%;background:linear-gradient(to right, #ffef00 4px, transparent 4px) 0 0, linear-gradient(to right, #ffef00 4px, transparent 4px) 0 100%, linear-gradient(to left, #ffef00 4px, transparent 4px) 100% 0, linear-gradient(to left, #ffef00 4px, transparent 4px) 100% 100%, linear-gradient(to bottom, #ffef00 4px, transparent 4px) 0 0, linear-gradient(to bottom, #ffef00 4px, transparent 4px) 100% 0, linear-gradient(to top, #ffef00 4px, transparent 4px) 0 100%, linear-gradient(to top, #ffef00 4px, transparent 4px) 100% 100%;background-repeat:no-repeat;background-size:20px 20px;&.align{display:flex;align-items:center;justify-content:center}}.indicator{width:60px;height:60px;background-color:#ffef00;display:flex;align-items:center;justify-content:center}@keyframes flickerAnimation{0%{opacity:1}49%{opacity:1}50%{opacity:0}99%{opacity:0}100%{opacity:1}}@keyframes flickerBgAnimation{0%{background:rgba(255, 247, 20, 0.0)}50%{background:rgba(255, 247, 20, 0.3)}100%{background:rgba(255, 230, 80, 0.0)}}.flicker{-webkit-animation:flickerAnimation 0.15s infinite;-moz-animation:flickerAnimation 0.15s infinite;-o-animation:flickerAnimation 0.15s infinite;animation:flickerAnimation 0.15s infinite}.flickerbg{-webkit-animation:flickerBgAnimation 1s infinite linear;-moz-animation:flickerBgAnimation 1s infinite linear;-o-animation:flickerBgAnimation 1s infinite linear;animation:flickerBgAnimation 1s infinite linear}
+        </style>
+        <div class="banner" id="pd-banner">
+          <div class="box align">
+            <!--every difficulty up has another skull, starting with normal, with 0, ending with death sentence, 6-->
+            <marquee behavior="scroll" direction="left" scrollamount="30">
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+              <r>POLICE ASSAULT IN PROGRESS</r>
+            </marquee>
+          </div>
+        </div>
+        <div class="indicator" id="pd-indicator">
+          <svg height="50" width="50">
+            <polygon points="25,10 40,40 10,40" style="fill:#FFEF00;stroke:#000;stroke-width:7" />
+          </svg>
+        </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
 var t=0;$(document).ready((function(){$("#spin").click((function(){var e=Math.floor(70*(Math.random()-.5));t++,totalDegree=1800*t+e,$("#wheel .sec").each((function(){var t=$(this),e=0,n=setInterval((function(){700===++e&&clearInterval(n);var a=t.offset().top;a<23.89&&($("#spin").addClass("spin"),setTimeout((function(){$("#spin").removeClass("spin")}),100))}),10);$("#inner-wheel").css({transform:"rotate("+totalDegree+"deg)"}),t.offset().top}))}))}));
+</script>
+<script>
+  const indicator=document.getElementById("pd-indicator");const banner=document.getElementById("pd-banner");function start(){indicator.onclick=()=>{};indicator.classList.add("flicker");setTimeout(()=>{indicator.classList.remove("flicker");banner.classList.add("max");banner.classList.add("flickerbg")},500)}indicator.onclick=start;
 </script>
   </body>
 </html>
