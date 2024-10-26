@@ -86,7 +86,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-var t=0;$(document).ready((function(){$("#spin").click((function(){var e=Math.floor(70*(Math.random()-.5));t++,totalDegree=1800*t+e,$("#wheel .sec").each((function(){var t=$(this),e=0,n=setInterval((function(){700===++e&&clearInterval(n);var a=t.offset().top;a<23.89&&($("#spin").addClass("spin"),setTimeout((function(){$("#spin").removeClass("spin")}),100))}),10);$("#inner-wheel").css({transform:"rotate("+totalDegree+"deg)"}),t.offset().top}))}))}));
+var t=0;$(document).ready((function(){$("#spin").click((function(){var e=Math.floor(50*(Math.random()-.5));t++,totalDegree=1800*t+e,$("#wheel .sec").each((function(){var t=$(this),e=0,n=setInterval((function(){700===++e&&clearInterval(n);var a=t.offset().top;a<23.89&&($("#spin").addClass("spin"),setTimeout((function(){$("#spin").removeClass("spin")}),100))}),10);$("#inner-wheel").css({transform:"rotate("+totalDegree+"deg)"}),t.offset().top}))}))}));
 </script>
 <script>
   const indicator=document.getElementById("pd-indicator");const banner=document.getElementById("pd-banner");function start(){indicator.onclick=()=>{};indicator.classList.add("flicker");setTimeout(()=>{indicator.classList.remove("flicker");banner.classList.add("max");banner.classList.add("flickerbg")},500)}indicator.onclick=start;
