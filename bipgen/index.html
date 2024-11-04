@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIP39 Password Generator</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #eee;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: #333;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #666;
+      border-radius: 5px;
+      background-color: #444;
+      color: #eee;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #password {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>BIP39 Password Generator</h1>
+
+    <label for="wordCount">Number of BIP39 words:</label>
+    <input type="number" id="wordCount" min="1" value="3">
+
+    <label for="caseStyle">Case Style:</label>
+    <select id="caseStyle">
+      <option value="Snaked-Camel">Snaked-Camel</option>
+      <option value="snake-case">snake-case</option>
+      <option value="CamelCase">CamelCase</option>
+    </select>
+
+    <label for="additionalSymbols">Additional Symbols:</label>
+    <textarea id="additionalSymbols">#</textarea>
+
+    <label for="symbolCount">Number of Additional Symbols:</label>
+    <input type="number" id="symbolCount" min="0" value="1">
+
+    <label for="numberCount">Number of Numbers:</label>
+    <input type="number" id="numberCount" min="0" value="3">
+
+    <button id="generateButton">Generate Password</button>
+    <button id="copyButton" disabled>Copy to Clipboard</button>
+
+    <div id="password"></div>
+    
+    <script>
+      const generateButton = document.getElementById('generateButton');
+      const copyButton = document.getElementById('copyButton');
+      const passwordOutput = document.getElementById('password');
+
+      generateButton.addEventListener('click', async () => {
+        const wordCount = parseInt(document.getElementById('wordCount').value);
+
+        const caseStyle = document.getElementById('caseStyle').value;
+        const additionalSymbols = document.getElementById('additionalSymbols').value;
+        const symbolCount = parseInt(document.getElementById('symbolCount').value);
+        const numberCount = parseInt(document.getElementById('numberCount').value);
+
+        try {
+          const response = await fetch('https://raw.githubusercontent.com/bitcoin/bips/refs/heads/master/bip-0039/english.txt');
+          const wordList = await response.text().then(text => text.split('\n'));
+
+          const words = [];
+          for (let i = 0; i < wordCount; i++) {
+            var word = wordList[Math.floor(Math.random() * wordList.length)];
+            if (caseStyle === 'CamelCase' || caseStyle === 'Snaked-Camel') {
+              word = word.replace(/ /g, '').replace(/^\w/, c => c.toUpperCase());
+            }
+            words.push(word);
+          }
+
+          let password = "";
+          if (caseStyle === 'snake-case' || caseStyle === "Snaked-Camel") {
+            password = words.join('-');
+          } else {
+            password = words.join('');
+          }
+
+          if (symbolCount > 0) {
+            const symbols = additionalSymbols.split('');
+            for (let i = 0; i < symbolCount; i++) {
+              password += symbols[Math.floor(Math.random() * symbols.length)];
+            }
+          }
+
+          if (numberCount > 0) {
+            for (let i = 0; i < numberCount; i++) {
+              password += Math.floor(Math.random() * 10).toString();
+            }
+          }
+
+          passwordOutput.textContent = password;
+          copyButton.disabled = false;
+        } catch (error) {
+          console.error(error);
+          passwordOutput.textContent = 'Error generating password!';
+        }
+      });
+      
+      copyButton.addEventListener('click', () => {
+        navigator.clipboard.writeText(passwordOutput.textContent)
+          .then(() => {
+            copyButton.textContent = 'Copied!';
+            setTimeout(() => {
+              copyButton.textContent = 'Copy to Clipboard';
+            }, 1000); // Reset button text after 1 second
+          })
+          .catch(err => {
+            console.error('Failed to copy: ', err);
+            copyButton.textContent = 'Error!';
+            setTimeout(() => {
+              copyButton.textContent = 'Copy to Clipboard';
+            }, 1000);
+          });
+      });
+    </script>
+  </div>
+</body>
+</html>
