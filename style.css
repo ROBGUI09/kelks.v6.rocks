@@ -29,16 +29,18 @@ details {
   justify-content: center;
 }
 
-details img,span {
-  max-width:90vw;
+details img, details span {
+  max-width: 90vw;
 }
 
 details img {
-  padding-bottom: 15px;
-  padding-top: 15px;
+  margin-bottom: 7.5px;
+  margin-top: 7.5px;
 }
 
-
+video {
+  max-width: 90vw;
+}
 
 .break-word span {
   overflow-wrap: break-word;
@@ -85,8 +87,8 @@ details[open] summary {
 }
 
 .content > * {
-  padding-bottom: 15px;
-  padding-bottom:15px;
+  margin-bottom: 7.5px;
+  margin-bottom:7.5px;
 }
 
 a { color: #00bbdd;}
@@ -102,6 +104,12 @@ body {
   padding-right:5%;
   padding-top:5%;
   padding-bottom:5%;
+  margin-bottom:5%;
+}
+
+.footer video {
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
 
 .header>* { margin-bottom: 5%;}
