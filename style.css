@@ -30,7 +30,11 @@ details {
 }
 
 details img,span {
-  max-width:95vw;
+  max-width:90vw;
+}
+
+.break-word {
+  text-wrap: break-word;
 }
 
 summary {
