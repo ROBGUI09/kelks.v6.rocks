@@ -35,6 +35,7 @@ details img,span {
 
 .break-word span {
   text-wrap: break-word;
+  display: block;
 }
 
 summary {
