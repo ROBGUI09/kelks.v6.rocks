@@ -9,15 +9,11 @@
       background-color: #222;
       color: #eee;
       font-family: 'Arial', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
+      margin: 10px;
     }
     .container {
       background-color: #333;
-      padding: 30px;
+      padding: 10px;
       border-radius: 10px;
     }
     h1 {
@@ -31,26 +27,22 @@
     input[type="text"],input[type="number"],
     select,
     textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
+      padding: 5px;
+      margin-bottom: 10px;
       border: 1px solid #666;
       border-radius: 5px;
       background-color: #444;
       color: #eee;
     }
     button {
-      background-color: #4CAF50;
+      background-color: #00aaff;
       color: white;
-      padding: 10px 20px;
+      padding: 5px 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
       margin-top: 10px;
-    }
-    button:hover {
-      background-color: #45a049;
     }
     #password {
       margin-top: 20px;
@@ -76,13 +68,13 @@
     </select>
 
     <label for="additionalSymbols">Additional Symbols:</label>
-    <textarea id="additionalSymbols">#</textarea>
+    <textarea id="additionalSymbols">#@!*</textarea>
 
     <label for="symbolCount">Number of Additional Symbols:</label>
     <input type="number" id="symbolCount" min="0" value="1">
 
     <label for="numberCount">Number of Numbers:</label>
-    <input type="number" id="numberCount" min="0" value="3">
+    <input type="number" id="numberCount" min="0" value="0"><br>
 
     <button id="generateButton">Generate Password</button>
     <button id="copyButton" disabled>Copy to Clipboard</button>
@@ -146,9 +138,9 @@
       copyButton.addEventListener('click', () => {
         navigator.clipboard.writeText(passwordOutput.textContent)
           .then(() => {
-            copyButton.textContent = 'Copied!';
+            copyButton.style.backgroundColor = '#00aa00';
             setTimeout(() => {
-              copyButton.textContent = 'Copy to Clipboard';
+              copyButton.style.backgroundColor = '#00aaff';
             }, 1000); // Reset button text after 1 second
           })
           .catch(err => {
